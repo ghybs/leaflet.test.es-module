@@ -115,7 +115,7 @@
   var a2 = bundle1.getLibVersion('leaflet', 'Rollup-specific').checkAssetsAvailability(true);
   var a3 = bundle1.getLibVersion('leaflet', 'Rollup-specific-plugin-all').checkAssetsAvailability(true);
 
-  Promise.all([p1, p2, a1, a2, a3]).finally(load);
+  Promise.all([p1, p2, a1, a2, a3]).then(load, load);
 
   function load() {
     // Retrieve the requested versions from browser address bar.
