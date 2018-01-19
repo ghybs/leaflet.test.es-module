@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leaflet ES modules test page</title>
+
+  <style>
+    #mymap {
+      height: 500px;
+      width: 500px;
+      border: 1px solid black;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+
+    .buttonsTable {
+      border: 1px solid grey;
+      border-collapse: collapse;
+    }
+
+    .buttonsTable td, .buttonsTable th {
+      padding: .5em;
+      border: 1px solid grey;
+    }
+
+    code {
+      color: brown;
+    }
+
+    .version-disabled {
+      text-decoration: line-through;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+</head>
+<body>
+
+<h1>Leaflet ES modules test page</h1>
+
+<p>Loaded libraries:</p>
+<ul>
+  <li>Leaflet: <span id="leaflet-version"></span></li>
+  <li>Test Plugin: <span id="testPlugin-version"></span></li>
+  <li>Test App: <span id="testApp-version"></span></li>
+</ul>
+
+<div id="mymap"></div>
+
+<table class="buttonsTable">
+  <tr>
+    <th>Leaflet</th>
+    <th>Test Plugin</th>
+  </tr>
+  <tr>
+    <td>
+      <!-- https://github.com/ghybs/manage-libs-versions -->
+      <div
+          data-manage-lib="leaflet"
+          data-manage-versions="master, 1.3.1, 1.3.0, 1.2.0, 1.1.0, 1.0.3, 1.0.2, 1.0.1, 1.0.0, 0.7.7"
+      ></div>
+    </td>
+    <td>
+      <div
+          data-manage-lib="testPlugin"
+          data-manage-versions="global, specific-UMD-from-module, all-UMD-from-module"
+      ></div>
+    </td>
+  </tr>
+  <tr>
+    <th colspan="2">Full app (includes Leaflet and Test Plugin as ES modules, and app)</th>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div
+          data-manage-lib="leaflet"
+          data-manage-versions="Rollup-all, Rollup-specific, Rollup-specific-plugin-all"
+      ></div>
+    </td>
+    <!--td>("eaten" by above colspan)</td-->
+  </tr>
+</table>
+
+<br />
+
+<button id="reload">Reload with the above versions</button>
+
+<br />
+
+<p>Note: Test Plugin and full app versions are available only if dist files have been built.</p>
+
+<script src="https://unpkg.com/urijs@1.18.12/src/URI.min.js"></script>
+<script src="https://unpkg.com/load-js-css@0.0.2/index.js"></script>
+
+<!--script src="./manage-libs-versions.js"></script-->
+<script src="https://unpkg.com/manage-libs-versions@0.2.1/manage-libs-versions.js"></script>
+<script src="test-libs-setup.js"></script>
+
+<script>
+
+  var fullAppVersions = [
+      'Rollup-all',
+      'Rollup-specific',
+      'Rollup-specific-plugin-all'
+  ];
+
+  bundle1.fillPlaceholders();
+
+  // Check for availability of built versions.
+  var p1 = bundle1.getLibVersion('testPlugin', 'specific-UMD-from-module').checkAssetsAvailability(true);
+  var p2 = bundle1.getLibVersion('testPlugin', 'all-UMD-from-module').checkAssetsAvailability(true);
+  var a1 = bundle1.getLibVersion('leaflet', 'Rollup-all').checkAssetsAvailability(true);
+  var a2 = bundle1.getLibVersion('leaflet', 'Rollup-specific').checkAssetsAvailability(true);
+  var a3 = bundle1.getLibVersion('leaflet', 'Rollup-specific-plugin-all').checkAssetsAvailability(true);
+
+  Promise.all([p1, p2, a1, a2, a3]).finally(load);
+
+  function load() {
+    // Retrieve the requested versions from browser address bar.
+    var url = window.location.href;
+    // https://github.com/medialize/URI.js
+    var urlParts = URI.parse(url);
+    var queryStringParts = URI.parseQuery(urlParts.query);
+    var loadIndividualTestAppScript = true;
+
+    // In case the full app version is selected, strip out the Test Plugin version.
+    if (fullAppVersions.includes(queryStringParts['leaflet'])) {
+      loadIndividualTestAppScript = false;
+      delete queryStringParts['testPlugin'];
+
+      // Mark Test Plugin as no longer mandatory.
+      bundle1.getLib('testPlugin').mandatory = false;
+    }
+
+    // https://github.com/ghybs/manage-libs-versions
+    var list = bundle1.getAndSelectVersionsAssetsList(queryStringParts);
+
+    if (loadIndividualTestAppScript) {
+      // Finally load the page script, now that Leaflet, Leaflet.markercluster and MCG.freezable are available.
+      list.push({
+        type: 'script',
+        path: './test-script.js'
+      });
+    }
+
+    console.log(list);
+
+    // https://github.com/ghybs/load-js-css
+    loadJsCss.list(list, {
+      delayScripts: 500 // Load scripts after stylesheets, delayed by this duration (in ms).
+    });
+  }
+
+
+  ////////////////////////////////////////////////////////
+  document.getElementById('reload').addEventListener('click', function (event) {
+    event.preventDefault();
+
+    var bundleVersions = bundle1.readSelectedVersionsNames();
+    var url = new URI(window.location.href).setQuery(bundleVersions);
+
+    window.location.href = url.toString();
+  });
+
+</script>
+
+<!--script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet-src.js"></script>
+<script src="../testPlugin/global/testPlugin.global.js"></script>
+<script src="test-script.js"></script-->
+
+</body>
+</html>
