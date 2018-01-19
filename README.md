@@ -15,11 +15,12 @@ This shows that we have to manually extra inner modules for their side effects (
 
 ## Demo
 
-Simply open the `docs/test-page.html` page.
+Simply open the `docs/test-page.html` page ([online demo](https://ghybs.github.io/leaflet.test.es-module/docs/test-page.html)).
 
 Then you can select at the bottom of the page which version to test:
-- Either Leaflet + Test Plugin (as global or one of the UMD-wrapped versions)
-- Or a built version
+- Either Leaflet + Test Plugin (as global or one of the [UMD-wrapped versions](#build-the-test-plugin))
+- Or a [built version](#build-the-test-app)
+
 
 ## Build the Test Plugin
 
@@ -32,7 +33,7 @@ Result is slim.
 Result is slightly bigger than previous, because Rollup treats each inner module as a different package.
 
 
-## Built the Test App
+## Build the Test App
 
 This bundles the Test Application with all its dependencies (i.e. Leaflet and the Test Plugin) in an IIFE-wrapped version for direct browser consumption.
 
@@ -45,11 +46,13 @@ and the module-specific version of the Test Plugin. Result is much slimmer than 
 like the previous one, but the module-all version of the Test Plugin. Result is almost as big as the "all" version,
 because the Test Plugin makes the entire Leaflet module be imported anyway, with little room for Tree Shaking because of side effects.
 
+
 ## Manual build
 
 Use command `npm run build -- <folder>`
 
 See the below list of available folders.
+
 
 ## Plugin build process
 
