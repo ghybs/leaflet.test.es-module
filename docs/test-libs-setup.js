@@ -105,6 +105,13 @@ var bundle1 = new manageLibsVersions.Bundle({
 // Add Full App scripts within "Leaflet" library (even though it is more than just Leaflet).
 // Listed here so that they are in the same radio group and are mutually exclusive with Leaflet.
 bundle1.getLib('leaflet').addVersion({
+  name: 'Browserify-all',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.browserify.all.js'
+  }]
+});
+bundle1.getLib('leaflet').addVersion({
   name: 'Rollup-all',
   assets: [{
     type: 'script',

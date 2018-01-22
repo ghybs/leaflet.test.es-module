@@ -8,6 +8,7 @@
     "build:plugin": "npm run build:plugin-specific && npm run build:plugin-all",
     "build:plugin-specific": "npm run build-r -- testPlugin/module-specific",
     "build:plugin-all": "npm run build-r -- testPlugin/module-all ",
+    "build:browserify-all": "browserify testApp/browserify/all/testApp.all.js -o testApp/dist/testApp.browserify.all.js",
     "build:rollup": "npm run build:rollup-all && npm run build:rollup-specific && npm run build:rollup-specific-plugin-all",
     "build:rollup-all": "npm run build-r -- testApp/rollup/all",
     "build:rollup-specific": "npm run build-r -- testApp/rollup/specific",
@@ -21,6 +22,7 @@
     "leaflet": "git+https://github.com/ghybs/Leaflet.git#4bc81a62ef69360a0c64873d816121d46d055f51"
   },
   "devDependencies": {
+    "browserify": "^15.2.0",
     "rollup": "^0.54.0",
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.2",
