@@ -9,18 +9,17 @@
 var L = require('leaflet');
 
 // If the plugin build has been configured to export something, we can use it here.
-var pluginTestControl = require('../../../testPlugin/module-all');
-// Otherwise, simply require the plugin to have it perform its side effect(s).
-// require('../../../testPlugin/module-all');
+var pluginTestControl = require('../../testPlugin/module-all-with-export');
+
 
 var mymap = L.map('mymap'),
     parisLatLng = [48.86, 2.34];
 
-// Using the plugin export, if provided.
-pluginTestControl.testControl().addTo(mymap);
-
 // Using the plugin side effect.
-L.control.testControl({
+L.control.testControl().addTo(mymap);
+
+// Using the plugin export, if provided.
+pluginTestControl.testControl({
   position: 'bottomleft'
 }).addTo(mymap);
 

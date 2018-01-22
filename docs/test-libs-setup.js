@@ -112,6 +112,13 @@ bundle1.getLib('leaflet').addVersion({
   }]
 });
 bundle1.getLib('leaflet').addVersion({
+  name: 'Browserify-all-plugin-with-export',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.browserify.all-plugin-with-export.js'
+  }]
+});
+bundle1.getLib('leaflet').addVersion({
   name: 'Rollup-all',
   assets: [{
     type: 'script',
