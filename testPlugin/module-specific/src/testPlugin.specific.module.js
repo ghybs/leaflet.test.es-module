@@ -41,6 +41,6 @@ export const TestControl = Control.extend({
 });
 
 
-export default function testControl() {
-  return new TestControl;
+export default function testControl(options) {
+  return new TestControl(options);
 };
