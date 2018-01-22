@@ -4,13 +4,15 @@
   "scripts": {
     "build": "node ./build/build.js",
     "build-r": "npm run build -- rollup",
+    "build-w": "npm run build -- webpack",
     "build:plugin": "npm run build:plugin-specific && npm run build:plugin-all",
     "build:plugin-specific": "npm run build-r -- testPlugin/module-specific",
     "build:plugin-all": "npm run build-r -- testPlugin/module-all ",
     "build:rollup": "npm run build:rollup-all && npm run build:rollup-specific && npm run build:rollup-specific-plugin-all",
     "build:rollup-all": "npm run build-r -- testApp/rollup/all",
     "build:rollup-specific": "npm run build-r -- testApp/rollup/specific",
-    "build:rollup-specific-plugin-all": "npm run build-r -- testApp/rollup/specific-plugin-all"
+    "build:rollup-specific-plugin-all": "npm run build-r -- testApp/rollup/specific-plugin-all",
+    "build:webpack-all": "npm run build-w -- testApp/rollup/all"
   },
   "dependencies": {
     "leaflet": "git+https://github.com/ghybs/Leaflet.git#4bc81a62ef69360a0c64873d816121d46d055f51"
@@ -21,6 +23,7 @@
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-uglify": "^2.0.1",
     "uglify-es": "^3.3.7",
+    "uglifyjs-webpack-plugin": "^1.1.6",
     "webpack": "^3.10.0"
   }
 }

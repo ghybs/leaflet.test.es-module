@@ -31,10 +31,24 @@ var configFile = process.argv[4] || null;
 
 console.log('Executing ' + buildEngine + ' for folder: "' + folderName + '"');
 
-var cmd = buildEngine + ' -c';
+var cmd = buildEngine;
+
+var configFlag =
+    buildEngine === 'rollup'
+        ? ' -c '
+        : buildEngine === 'webpack'
+        ? ' --config '
+        : '';
+
+if (buildEngine === 'rollup') {
+  cmd += configFlag;
+}
 
 if (configFile) {
-  cmd += ' ' + configFile;
+  if (buildEngine !== 'rollup') {
+    cmd += configFlag;
+  }
+  cmd += configFile;
 } else {
   // Look for minify version of the default configuration file.
   var configMinify = buildEngine + '.minify.config.js';
@@ -42,7 +56,7 @@ if (configFile) {
 
   if (fs.existsSync(path)) {
     console.log('Found a minify version of the default configuration file, will execute it as well.');
-    cmd += ' && ' + buildEngine + ' -c ' + configMinify;
+    cmd += ' && ' + buildEngine + configFlag + configMinify;
   }
 }
 

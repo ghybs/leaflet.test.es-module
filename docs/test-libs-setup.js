@@ -125,6 +125,13 @@ bundle1.getLib('leaflet').addVersion({
     path: '../testApp/dist/testApp.rollup.specific-plugin-all.js'
   }]
 });
+bundle1.getLib('leaflet').addVersion({
+  name: 'webpack-all',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.webpack.all.js'
+  }]
+});
 
 
 function _makeLeafletVersionAssets(options) {

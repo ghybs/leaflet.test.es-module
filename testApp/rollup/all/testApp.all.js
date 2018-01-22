@@ -20,4 +20,4 @@ mymap.setView(parisLatLng, 12);
 // If the app also uses Rollup, then no problem, but it is far from guaranteed for other build engines.
 document.getElementById('leaflet-version').innerHTML = L.version + ' (bundled with the app)';
 document.getElementById('testPlugin-version').innerHTML = '(see in the top right map control)';
-document.getElementById('testApp-version').innerHTML = 'Rollup all';
+document.getElementById('testApp-version').innerHTML = '(Rollup or webpack) with all Leaflet';
