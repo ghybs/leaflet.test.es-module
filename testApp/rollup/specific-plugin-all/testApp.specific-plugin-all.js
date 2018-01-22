@@ -1,7 +1,7 @@
 import {createMap} from 'leaflet/src/map/Map';
 import {tileLayer as createTileLayer} from 'leaflet/src/layer/tile/TileLayer';
 import {marker as createMarker} from 'leaflet/src/layer/marker/Marker';
-import {version as leafletVersion} from 'leaflet/package.json'; // Rollup can read JSON files as well.
+import {version as leafletVersion} from 'leaflet/package.json'; // Rollup and webpack2+ can read JSON files as well.
 // No need to import other Leaflet components for side effect.
 // Since we import the all version of the plugin, all Leaflet will be imported and all side effects will occur.
 import createTestControl from '../../../testPlugin/module-all'; // Could be any arbitrary name (not necessarily "createTestControl").
@@ -24,4 +24,4 @@ mymap.setView(parisLatLng, 12);
 // In this app version, we use Rollup build engine, which can load JSON files.
 document.getElementById('leaflet-version').innerHTML = leafletVersion + ' (bundled with the app)';
 document.getElementById('testPlugin-version').innerHTML = '(see in the top right map control)';
-document.getElementById('testApp-version').innerHTML = 'Rollup specific';
+document.getElementById('testApp-version').innerHTML = '(Rollup or webpack) with specific Leaflet inner modules';

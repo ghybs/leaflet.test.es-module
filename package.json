@@ -12,7 +12,10 @@
     "build:rollup-all": "npm run build-r -- testApp/rollup/all",
     "build:rollup-specific": "npm run build-r -- testApp/rollup/specific",
     "build:rollup-specific-plugin-all": "npm run build-r -- testApp/rollup/specific-plugin-all",
-    "build:webpack-all": "npm run build-w -- testApp/rollup/all"
+    "build:webpack": "npm run build:webpack-all && npm run build:webpack-specific && npm run build:webpack-specific-plugin-all",
+    "build:webpack-all": "npm run build-w -- testApp/rollup/all",
+    "build:webpack-specific": "npm run build-w -- testApp/rollup/specific",
+    "build:webpack-specific-plugin-all": "npm run build-w -- testApp/rollup/specific-plugin-all"
   },
   "dependencies": {
     "leaflet": "git+https://github.com/ghybs/Leaflet.git#4bc81a62ef69360a0c64873d816121d46d055f51"

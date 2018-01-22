@@ -132,6 +132,20 @@ bundle1.getLib('leaflet').addVersion({
     path: '../testApp/dist/testApp.webpack.all.js'
   }]
 });
+bundle1.getLib('leaflet').addVersion({
+  name: 'webpack-specific',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.webpack.specific.js'
+  }]
+});
+bundle1.getLib('leaflet').addVersion({
+  name: 'webpack-specific-plugin-all',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.webpack.specific-plugin-all.js'
+  }]
+});
 
 
 function _makeLeafletVersionAssets(options) {
