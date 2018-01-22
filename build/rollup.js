@@ -8,7 +8,11 @@ var exec = require('child_process').exec;
 
 // Retrieve source folder.
 // https://nodejs.org/docs/latest/api/process.html#process_process_argv
-var folderName = process.argv[2] || 'testApp/rollup/all';
+var folderName = process.argv[2];
+
+if (!folderName) {
+  throw 'Please specify the folder path to build.'
+}
 
 // Retrieve configuration file name, if specified.
 // https://rollupjs.org/#configuration-files
