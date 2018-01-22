@@ -2,14 +2,15 @@
   "name": "leaflet.test.es-module",
   "version": "0.0.1",
   "scripts": {
-    "build": "node ./build/rollup.js",
+    "build": "node ./build/build.js",
+    "build-r": "npm run build -- rollup",
     "build:plugin": "npm run build:plugin-specific && npm run build:plugin-all",
-    "build:plugin-specific": "npm run build -- testPlugin/module-specific && npm run build -- testPlugin/module-specific rollup.minify.config.js",
-    "build:plugin-all": "npm run build -- testPlugin/module-all && npm run build -- testPlugin/module-all rollup.minify.config.js",
+    "build:plugin-specific": "npm run build-r -- testPlugin/module-specific && npm run build-r -- testPlugin/module-specific rollup.minify.config.js",
+    "build:plugin-all": "npm run build-r -- testPlugin/module-all && npm run build-r -- testPlugin/module-all rollup.minify.config.js",
     "build:rollup": "npm run build:rollup-all && npm run build:rollup-specific && npm run build:rollup-specific-plugin-all",
-    "build:rollup-all": "npm run build -- testApp/rollup/all && npm run build -- testApp/rollup/all rollup.minify.config.js",
-    "build:rollup-specific": "npm run build -- testApp/rollup/specific && npm run build -- testApp/rollup/specific rollup.minify.config.js",
-    "build:rollup-specific-plugin-all": "npm run build -- testApp/rollup/specific-plugin-all && npm run build -- testApp/rollup/specific-plugin-all rollup.minify.config.js"
+    "build:rollup-all": "npm run build-r -- testApp/rollup/all && npm run build-r -- testApp/rollup/all rollup.minify.config.js",
+    "build:rollup-specific": "npm run build-r -- testApp/rollup/specific && npm run build-r -- testApp/rollup/specific rollup.minify.config.js",
+    "build:rollup-specific-plugin-all": "npm run build-r -- testApp/rollup/specific-plugin-all && npm run build-r -- testApp/rollup/specific-plugin-all rollup.minify.config.js"
   },
   "dependencies": {
     "leaflet": "git+https://github.com/ghybs/Leaflet.git#4bc81a62ef69360a0c64873d816121d46d055f51"
@@ -19,6 +20,7 @@
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-uglify": "^2.0.1",
-    "uglify-es": "^3.3.7"
+    "uglify-es": "^3.3.7",
+    "webpack": "^3.10.0"
   }
 }
