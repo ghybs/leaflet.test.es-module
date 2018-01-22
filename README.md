@@ -10,7 +10,7 @@ I take the opportunity to test different configurations, in particular:
 and letting Tree Shaking trying to slim down the resulting bundle
 (hint: this highlights the bad time it has, due to all side effects in Leaflet `index.js` files)
 - importing only the necessary bits ("manual" Tree Shaking).
-This shows that we have to manually extra inner modules for their side effects (typically: map handlers, controls)
+This shows that we have to manually import extra inner modules for their side effects (typically: map handlers, controls)
 
 
 ## Demo
