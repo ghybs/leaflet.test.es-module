@@ -1,0 +1,7 @@
+{
+  "name": "testPlugin",
+  "version": "0.0.1",
+  "main": "dist/testPlugin.all-with-export.umd-from-module",
+  "module": "src/testPlugin.all-with-export.module",
+  "jsnext:main": "src/testPlugin.all-with-export.module"
+}
