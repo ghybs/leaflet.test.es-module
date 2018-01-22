@@ -5,12 +5,12 @@
     "build": "node ./build/build.js",
     "build-r": "npm run build -- rollup",
     "build:plugin": "npm run build:plugin-specific && npm run build:plugin-all",
-    "build:plugin-specific": "npm run build-r -- testPlugin/module-specific && npm run build-r -- testPlugin/module-specific rollup.minify.config.js",
-    "build:plugin-all": "npm run build-r -- testPlugin/module-all && npm run build-r -- testPlugin/module-all rollup.minify.config.js",
+    "build:plugin-specific": "npm run build-r -- testPlugin/module-specific",
+    "build:plugin-all": "npm run build-r -- testPlugin/module-all ",
     "build:rollup": "npm run build:rollup-all && npm run build:rollup-specific && npm run build:rollup-specific-plugin-all",
-    "build:rollup-all": "npm run build-r -- testApp/rollup/all && npm run build-r -- testApp/rollup/all rollup.minify.config.js",
-    "build:rollup-specific": "npm run build-r -- testApp/rollup/specific && npm run build-r -- testApp/rollup/specific rollup.minify.config.js",
-    "build:rollup-specific-plugin-all": "npm run build-r -- testApp/rollup/specific-plugin-all && npm run build-r -- testApp/rollup/specific-plugin-all rollup.minify.config.js"
+    "build:rollup-all": "npm run build-r -- testApp/rollup/all",
+    "build:rollup-specific": "npm run build-r -- testApp/rollup/specific",
+    "build:rollup-specific-plugin-all": "npm run build-r -- testApp/rollup/specific-plugin-all"
   },
   "dependencies": {
     "leaflet": "git+https://github.com/ghybs/Leaflet.git#4bc81a62ef69360a0c64873d816121d46d055f51"

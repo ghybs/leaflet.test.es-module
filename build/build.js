@@ -4,6 +4,8 @@
 
 // To be run with node.
 var exec = require('child_process').exec;
+var path = require('path');
+var fs = require('fs');
 
 
 // Retrieve build engine.
@@ -33,6 +35,15 @@ var cmd = buildEngine + ' -c';
 
 if (configFile) {
   cmd += ' ' + configFile;
+} else {
+  // Look for minify version of the default configuration file.
+  var configMinify = buildEngine + '.minify.config.js';
+  var path = path.join(folderName, configMinify);
+
+  if (fs.existsSync(path)) {
+    console.log('Found a minify version of the default configuration file, will execute it as well.');
+    cmd += ' && ' + buildEngine + ' -c ' + configMinify;
+  }
 }
 
 exec(cmd, {
