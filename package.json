@@ -22,7 +22,7 @@
     "build:webpack-specific-plugin-all": "npm run build-w -- testApp/rollup/specific-plugin-all"
   },
   "dependencies": {
-    "leaflet": "git+https://github.com/ghybs/Leaflet.git#4bc81a62ef69360a0c64873d816121d46d055f51"
+    "leaflet": "git+https://github.com/ghybs/Leaflet.git#961cfdce2881da54892a18282a3e170027261178"
   },
   "devDependencies": {
     "browserify": "^15.2.0",
