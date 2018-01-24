@@ -1,5 +1,6 @@
 import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
+import json from 'rollup-plugin-json';
 import {minify} from 'uglify-es';
 import uglify from 'rollup-plugin-uglify';
 
@@ -17,7 +18,8 @@ const sourceConfig = {
   },
   treeshake: true,
   plugins: [
-    resolve() // https://github.com/rollup/rollup-plugin-node-resolve
+    resolve(), // https://github.com/rollup/rollup-plugin-node-resolve
+    json() // https://github.com/rollup/rollup-plugin-json
   ]
 };
 
@@ -30,7 +32,8 @@ const minifiedConfig = {
   treeshake: true,
   plugins: [
     resolve(), // https://github.com/rollup/rollup-plugin-node-resolve
-    uglify({}, minify)
+    json(), // https://github.com/rollup/rollup-plugin-json
+    uglify({}, minify) // https://github.com/TrySound/rollup-plugin-uglify
   ]
 };
 

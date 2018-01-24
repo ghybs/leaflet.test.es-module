@@ -5,7 +5,7 @@ import {marker as createMarker} from 'leaflet/src/layer/marker/Marker';
 import {version as leafletVersion} from 'leaflet/package.json'; // Rollup and webpack2+ can read JSON files as well.
 import 'leaflet/src/control/Control.Attribution'; // Side effect: have Map include an attribution control by default.
 import 'leaflet/src/control/Control.Zoom'; // Side effect: have Map include a zoom control by default
-import createTestControl from '../../../testPlugin/module-specific'; // Could be any arbitrary name (not necessarily "createTestControl").
+import createTestControl from '../../testPlugin/module-specific'; // Could be any arbitrary name (not necessarily "createTestControl").
 
 var mymap = createMap('mymap'),
     parisLatLng = [48.86, 2.34];
