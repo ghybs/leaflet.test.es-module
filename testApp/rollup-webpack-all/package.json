@@ -4,7 +4,7 @@
   "main": "all",
   "input": "testApp.all",
   "scripts": {
-    "build": "rollup -c ../rollup.config.js",
+    "rollup": "rollup -c ../rollup.config.js",
     "webpack": "webpack --config ../webpack.config.js"
   },
   "dependencies": {
