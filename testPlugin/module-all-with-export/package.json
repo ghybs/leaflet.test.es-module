@@ -3,5 +3,13 @@
   "version": "0.0.1",
   "main": "dist/testPlugin.all-with-export.umd-from-module",
   "module": "src/testPlugin.all-with-export.module",
-  "jsnext:main": "src/testPlugin.all-with-export.module"
+  "jsnext:main": "src/testPlugin.all-with-export.module",
+  "scripts": {
+    "build": "rollup -c ../rollup.config.js"
+  },
+  "devDependencies": {
+    "rollup": "^0.54.0",
+    "rollup-plugin-uglify": "^2.0.1",
+    "uglify-es": "^3.3.7"
+  }
 }

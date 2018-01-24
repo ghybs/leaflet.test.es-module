@@ -6,9 +6,9 @@
     "build-r": "npm run build -- rollup",
     "build-w": "npm run build -- webpack",
     "build:plugin": "npm run build:plugin-specific && npm run build:plugin-all && npm run build:plugin-all-with-export",
-    "build:plugin-specific": "npm run build-r -- testPlugin/module-specific",
-    "build:plugin-all": "npm run build-r -- testPlugin/module-all",
-    "build:plugin-all-with-export": "npm run build-r -- testPlugin/module-all-with-export",
+    "build:plugin-specific": "cd testPlugin/module-specific && npm run build -- --umdMode='UMD-wrapped ES module'",
+    "build:plugin-all": "cd testPlugin/module-all && npm run build -- --umdMode='UMD-wrapped ES module'",
+    "build:plugin-all-with-export": "cd testPlugin/module-all-with-export && npm run build -- --umdMode='UMD-wrapped ES module WITH EXPORT'",
     "build:browserify": "npm run build:browserify-all && npm run build:browserify-all-plugin-with-export",
     "build:browserify-all": "browserify testApp/browserify/testApp.all.js -o testApp/dist/testApp.browserify.all.js",
     "build:browserify-all-plugin-with-export": "browserify testApp/browserify/testApp.all-plugin-with-export.js -o testApp/dist/testApp.browserify.all-plugin-with-export.js",
@@ -32,6 +32,7 @@
     "rollup-plugin-uglify": "^2.0.1",
     "uglify-es": "^3.3.7",
     "uglifyjs-webpack-plugin": "^1.1.6",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "yargs": "^11.0.0"
   }
 }
