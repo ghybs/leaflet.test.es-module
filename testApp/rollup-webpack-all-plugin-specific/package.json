@@ -1,0 +1,13 @@
+{
+  "name": "test-app",
+  "version": "0.0.1",
+  "main": "all-plugin-specific",
+  "input": "testApp.all-plugin-specific",
+  "scripts": {
+    "rollup": "rollup -c ../rollup.config.js",
+    "webpack": "webpack --config ../webpack.config.js"
+  },
+  "dependencies": {
+    
+  }
+}

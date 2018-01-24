@@ -126,6 +126,13 @@ bundle1.getLib('leaflet').addVersion({
   }]
 });
 bundle1.getLib('leaflet').addVersion({
+  name: 'Rollup-all-plugin-specific',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.rollup.all-plugin-specific.js'
+  }]
+});
+bundle1.getLib('leaflet').addVersion({
   name: 'Rollup-specific',
   assets: [{
     type: 'script',
@@ -144,6 +151,13 @@ bundle1.getLib('leaflet').addVersion({
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.webpack.all.js'
+  }]
+});
+bundle1.getLib('leaflet').addVersion({
+  name: 'webpack-all-plugin-specific',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.webpack.all-plugin-specific.js'
   }]
 });
 bundle1.getLib('leaflet').addVersion({
