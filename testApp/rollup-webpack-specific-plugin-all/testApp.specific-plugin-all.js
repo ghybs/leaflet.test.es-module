@@ -4,7 +4,7 @@ import {marker as createMarker} from 'leaflet/src/layer/marker/Marker';
 import {version as leafletVersion} from 'leaflet/package.json'; // Rollup and webpack2+ can read JSON files as well.
 // No need to import other Leaflet components for side effect.
 // Since we import the all version of the plugin, all Leaflet will be imported and all side effects will occur.
-import createTestControl from '../../../testPlugin/module-all'; // Could be any arbitrary name (not necessarily "createTestControl").
+import createTestControl from '../../testPlugin/module-all'; // Could be any arbitrary name (not necessarily "createTestControl").
 
 var mymap = createMap('mymap'),
     parisLatLng = [48.86, 2.34];
