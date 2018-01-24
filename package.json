@@ -17,7 +17,7 @@
     "build:rollup-specific": "npm run build-r -- testApp/rollup/specific",
     "build:rollup-specific-plugin-all": "npm run build-r -- testApp/rollup/specific-plugin-all",
     "build:webpack": "npm run build:webpack-all && npm run build:webpack-specific && npm run build:webpack-specific-plugin-all",
-    "build:webpack-all": "npm run build-w -- testApp/rollup/all",
+    "build:webpack-all": "cd testApp/rollup-webpack-all && npm run webpack",
     "build:webpack-specific": "npm run build-w -- testApp/rollup/specific",
     "build:webpack-specific-plugin-all": "npm run build-w -- testApp/rollup/specific-plugin-all"
   },
