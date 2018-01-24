@@ -13,7 +13,7 @@
     "build:browserify-all": "browserify testApp/browserify/testApp.all.js -o testApp/dist/testApp.browserify.all.js",
     "build:browserify-all-plugin-with-export": "browserify testApp/browserify/testApp.all-plugin-with-export.js -o testApp/dist/testApp.browserify.all-plugin-with-export.js",
     "build:rollup": "npm run build:rollup-all && npm run build:rollup-specific && npm run build:rollup-specific-plugin-all",
-    "build:rollup-all": "npm run build-r -- testApp/rollup/all",
+    "build:rollup-all": "cd testApp/rollup-webpack-all && npm run build",
     "build:rollup-specific": "npm run build-r -- testApp/rollup/specific",
     "build:rollup-specific-plugin-all": "npm run build-r -- testApp/rollup/specific-plugin-all",
     "build:webpack": "npm run build:webpack-all && npm run build:webpack-specific && npm run build:webpack-specific-plugin-all",

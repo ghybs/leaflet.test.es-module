@@ -1,5 +1,5 @@
 import * as L from 'leaflet';
-import createTestControl from '../../../testPlugin/module-all'; // Could be any arbitrary name (not necessarily "createTestControl").
+import createTestControl from '../../testPlugin/module-all'; // Could be any arbitrary name (not necessarily "createTestControl").
 
 var mymap = L.map('mymap'),
     parisLatLng = [48.86, 2.34];

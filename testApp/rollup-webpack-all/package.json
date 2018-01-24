@@ -1,0 +1,12 @@
+{
+  "name": "test-app",
+  "version": "0.0.1",
+  "main": "all",
+  "input": "testApp.all",
+  "scripts": {
+    "build": "rollup -c ../rollup.config.js"
+  },
+  "dependencies": {
+    
+  }
+}
