@@ -129,6 +129,12 @@ var fullAppSpecs = [{
     path: '../testApp/dist/testApp.rollup.all-plugin-specific.js'
   }]
 }, {
+  name: 'Rollup-all-plugin-all-umd',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.rollup.all-plugin-all-umd.js'
+  }]
+}, {
   name: 'Rollup-specific',
   assets: [{
     type: 'script',
@@ -151,6 +157,12 @@ var fullAppSpecs = [{
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.webpack.all-plugin-specific.js'
+  }]
+}, {
+  name: 'webpack-all-plugin-all-umd',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.webpack.all-plugin-all-umd.js'
   }]
 }, {
   name: 'webpack-specific',

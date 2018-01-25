@@ -1,5 +1,6 @@
 import path from 'path';
 import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs'; // For importing 3rd party libs that are only available as UMD-wrapped, not directly as ES module.
 import json from 'rollup-plugin-json';
 import {minify} from 'uglify-es';
 import uglify from 'rollup-plugin-uglify';
@@ -19,7 +20,8 @@ const sourceConfig = {
   treeshake: true,
   plugins: [
     resolve(), // https://github.com/rollup/rollup-plugin-node-resolve
-    json() // https://github.com/rollup/rollup-plugin-json
+    json(), // https://github.com/rollup/rollup-plugin-json
+    commonjs() // https://github.com/rollup/rollup-plugin-commonjs
   ]
 };
 
@@ -33,6 +35,7 @@ const minifiedConfig = {
   plugins: [
     resolve(), // https://github.com/rollup/rollup-plugin-node-resolve
     json(), // https://github.com/rollup/rollup-plugin-json
+    commonjs(), // https://github.com/rollup/rollup-plugin-commonjs
     uglify({}, minify) // https://github.com/TrySound/rollup-plugin-uglify
   ]
 };
