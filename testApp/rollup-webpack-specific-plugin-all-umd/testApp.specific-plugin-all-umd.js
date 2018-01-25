@@ -5,12 +5,12 @@ import {version as leafletVersion} from 'leaflet/package.json'; // Rollup and we
 // No need to import other Leaflet components for side effect.
 // Since we import the all version of the plugin, all Leaflet will be imported and all side effects will occur.
 import '../../testPlugin/module-all/dist/testPlugin.all.umd-from-module';
-import * as L from 'leaflet';
+import {control} from 'leaflet/src/control/Control'; // The plugin does not export anything, so we have to use its side effect of attaching to Control/control.
 
 var mymap = createMap('mymap'),
     parisLatLng = [48.86, 2.34];
 
-L.control.testControl().addTo(mymap); // Use the Test Plugin side effect.
+control.testControl().addTo(mymap); // Use the Test Plugin side effect.
 
 createTileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors'
