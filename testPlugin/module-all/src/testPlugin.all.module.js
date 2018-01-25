@@ -2,13 +2,13 @@
 // in Leaflet `index.js` files make app builds bigger.
 // But the resulting UMD version is slightly simpler, since Rollup uses now
 // only 1 global (`L`).
-import {Control, DomUtil, Map} from 'leaflet';
+import * as L from 'leaflet';
 
 
 // Based on http://leafletjs.com/examples/extending/extending-3-controls.html
-export const TestControl = Control.extend({
+export const TestControl = L.Control.extend({
   onAdd: function(map) {
-    var div = DomUtil.create('div', 'leaflet-bar'),
+    var div = L.DomUtil.create('div', 'leaflet-bar'),
         // Use `umdMode` if already defined in introduction.
         // This is just a mean to display how the plugin has been loaded
         // into the page.
@@ -21,7 +21,7 @@ export const TestControl = Control.extend({
     div.style.padding = '5px';
 
     // Use `Map` somehow to have Rollup not tree-shake the import.
-    console.log(Map);
+    console.log(L.Map);
 
 
     return div;
