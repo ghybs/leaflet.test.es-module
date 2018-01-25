@@ -11,7 +11,7 @@
     "browserify": "npm run browserify:all && npm run browserify:all-plugin-with-export",
     "browserify:all": "browserify testApp/browserify/testApp.all.js -o testApp/dist/testApp.browserify.all.js",
     "browserify:all-plugin-with-export": "browserify testApp/browserify/testApp.all-plugin-with-export.js -o testApp/dist/testApp.browserify.all-plugin-with-export.js",
-    "rollup": "npm run rollup:all && npm run rollup:all-plugin-specific && npm run rollup:all-plugin-all-umd && npm run rollup:all-plugin-specific-umd && npm run rollup:specific && npm run rollup:specific-plugin-all && rollup:specific-plugin-all-umd",
+    "rollup": "npm run rollup:all && npm run rollup:all-plugin-specific && npm run rollup:all-plugin-all-umd && npm run rollup:all-plugin-specific-umd && npm run rollup:specific && npm run rollup:specific-plugin-all && npm run rollup:specific-plugin-all-umd && npm run rollup:specific-plugin-specific-umd",
     "rollup:all": "cd testApp/rollup-webpack-all && npm run rollup",
     "rollup:all-plugin-specific": "cd testApp/rollup-webpack-all-plugin-specific && npm run rollup",
     "rollup:all-plugin-all-umd": "cd testApp/rollup-webpack-all-plugin-all-umd && npm run rollup",
@@ -19,14 +19,16 @@
     "rollup:specific": "cd testApp/rollup-webpack-specific && npm run rollup",
     "rollup:specific-plugin-all": "cd testApp/rollup-webpack-specific-plugin-all && npm run rollup",
     "rollup:specific-plugin-all-umd": "cd testApp/rollup-webpack-specific-plugin-all-umd && npm run rollup",
-    "webpack": "npm run webpack:all && npm run webpack:all-plugin-specific && npm run webpack:all-plugin-all-umd && npm run webpack:all-plugin-specific-umd && npm run webpack:specific && npm run webpack:specific-plugin-all && npm run webpack:specific-plugin-all-umd",
+    "rollup:specific-plugin-specific-umd": "cd testApp/rollup-webpack-specific-plugin-specific-umd && npm run rollup",
+    "webpack": "npm run webpack:all && npm run webpack:all-plugin-specific && npm run webpack:all-plugin-all-umd && npm run webpack:all-plugin-specific-umd && npm run webpack:specific && npm run webpack:specific-plugin-all && npm run webpack:specific-plugin-all-umd && npm run webpack:specific-plugin-specific-umd",
     "webpack:all": "cd testApp/rollup-webpack-all && npm run webpack",
     "webpack:all-plugin-specific": "cd testApp/rollup-webpack-all-plugin-specific && npm run webpack",
     "webpack:all-plugin-all-umd": "cd testApp/rollup-webpack-all-plugin-all-umd && npm run webpack",
     "webpack:all-plugin-specific-umd": "cd testApp/rollup-webpack-all-plugin-specific-umd && npm run webpack",
     "webpack:specific": "cd testApp/rollup-webpack-specific && npm run webpack",
     "webpack:specific-plugin-all": "cd testApp/rollup-webpack-specific-plugin-all && npm run webpack",
-    "webpack:specific-plugin-all-umd": "cd testApp/rollup-webpack-specific-plugin-all-umd && npm run webpack"
+    "webpack:specific-plugin-all-umd": "cd testApp/rollup-webpack-specific-plugin-all-umd && npm run webpack",
+    "webpack:specific-plugin-specific-umd": "cd testApp/rollup-webpack-specific-plugin-specific-umd && npm run webpack"
   },
   "dependencies": {
     "leaflet": "git+https://github.com/ghybs/Leaflet.git#961cfdce2881da54892a18282a3e170027261178"

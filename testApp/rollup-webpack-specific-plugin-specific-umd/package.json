@@ -1,0 +1,13 @@
+{
+  "name": "test-app",
+  "version": "0.0.1",
+  "main": "specific-plugin-specific-umd",
+  "input": "testApp.specific-plugin-specific-umd",
+  "scripts": {
+    "rollup": "rollup -c ../rollup.config.js",
+    "webpack": "webpack --config ../webpack.config.js"
+  },
+  "dependencies": {
+    
+  }
+}

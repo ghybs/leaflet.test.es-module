@@ -74,8 +74,9 @@
   <tr>
     <td colspan="2">
       <div
+          id="fullAppVersions"
           data-manage-lib="leaflet"
-          data-manage-versions="Browserify-all, Browserify-all-plugin-with-export, Rollup-all, Rollup-all-plugin-specific, Rollup-all-plugin-all-umd, Rollup-all-plugin-specific-umd, Rollup-specific, Rollup-specific-plugin-all, Rollup-specific-plugin-all-umd, webpack-all, webpack-all-plugin-specific, webpack-all-plugin-all-umd, webpack-all-plugin-specific-umd, webpack-specific, webpack-specific-plugin-all, webpack-specific-plugin-all-umd"
+          data-manage-versions="(filled at runtime)"
       ></div>
     </td>
     <!--td>("eaten" by above colspan)</td-->
@@ -109,14 +110,19 @@
       'Rollup-specific',
       'Rollup-specific-plugin-all',
       'Rollup-specific-plugin-all-umd',
+      'Rollup-specific-plugin-specific-umd',
       'webpack-all',
       'webpack-all-plugin-specific',
       'webpack-all-plugin-all-umd',
       'webpack-all-plugin-specific-umd',
       'webpack-specific',
       'webpack-specific-plugin-all',
-      'webpack-specific-plugin-all-umd'
+      'webpack-specific-plugin-all-umd',
+      'webpack-specific-plugin-specific-umd'
   ];
+
+  // Fill the Full App version names into the appropriate placeholder.
+  document.getElementById('fullAppVersions').dataset['manageVersions'] = fullAppVersions.join(', ');
 
   bundle1.fillPlaceholders();
 
