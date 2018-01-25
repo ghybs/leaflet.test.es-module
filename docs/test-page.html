@@ -34,7 +34,6 @@
     }
   </style>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
 </head>
 <body>
 
@@ -118,11 +117,13 @@
   // Check for availability of built versions.
   var p1 = bundle1.getLibVersion('testPlugin', 'specific-UMD-from-module').checkAssetsAvailability(true);
   var p2 = bundle1.getLibVersion('testPlugin', 'all-UMD-from-module').checkAssetsAvailability(true);
-  var a1 = bundle1.getLibVersion('leaflet', 'Rollup-all').checkAssetsAvailability(true);
-  var a2 = bundle1.getLibVersion('leaflet', 'Rollup-specific').checkAssetsAvailability(true);
-  var a3 = bundle1.getLibVersion('leaflet', 'Rollup-specific-plugin-all').checkAssetsAvailability(true);
+  var promises = [p1, p2];
 
-  Promise.all([p1, p2, a1, a2, a3]).then(load, load);
+  fullAppVersions.forEach(function (versionName) {
+    promises.push(bundle1.getLibVersion('leaflet', versionName).checkAssetsAvailability(true));
+  });
+
+  Promise.all(promises).then(load, load);
 
   function load() {
     // Retrieve the requested versions from browser address bar.
@@ -172,10 +173,6 @@
   });
 
 </script>
-
-<!--script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet-src.js"></script>
-<script src="../testPlugin/global/testPlugin.global.js"></script>
-<script src="test-script.js"></script-->
 
 </body>
 </html>

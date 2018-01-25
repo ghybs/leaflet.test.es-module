@@ -104,75 +104,77 @@ var bundle1 = new manageLibsVersions.Bundle({
 
 // Add Full App scripts within "Leaflet" library (even though it is more than just Leaflet).
 // Listed here so that they are in the same radio group and are mutually exclusive with Leaflet.
-bundle1.getLib('leaflet').addVersion({
+var fullAppSpecs = [{
   name: 'Browserify-all',
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.browserify.all.js'
   }]
-});
-bundle1.getLib('leaflet').addVersion({
+}, {
   name: 'Browserify-all-plugin-with-export',
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.browserify.all-plugin-with-export.js'
   }]
-});
-bundle1.getLib('leaflet').addVersion({
+}, {
   name: 'Rollup-all',
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.rollup.all.js'
   }]
-});
-bundle1.getLib('leaflet').addVersion({
+}, {
   name: 'Rollup-all-plugin-specific',
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.rollup.all-plugin-specific.js'
   }]
-});
-bundle1.getLib('leaflet').addVersion({
+}, {
   name: 'Rollup-specific',
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.rollup.specific.js'
   }]
-});
-bundle1.getLib('leaflet').addVersion({
+}, {
   name: 'Rollup-specific-plugin-all',
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.rollup.specific-plugin-all.js'
   }]
-});
-bundle1.getLib('leaflet').addVersion({
+}, {
   name: 'webpack-all',
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.webpack.all.js'
   }]
-});
-bundle1.getLib('leaflet').addVersion({
+}, {
   name: 'webpack-all-plugin-specific',
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.webpack.all-plugin-specific.js'
   }]
-});
-bundle1.getLib('leaflet').addVersion({
+}, {
   name: 'webpack-specific',
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.webpack.specific.js'
   }]
-});
-bundle1.getLib('leaflet').addVersion({
+}, {
   name: 'webpack-specific-plugin-all',
   assets: [{
     type: 'script',
     path: '../testApp/dist/testApp.webpack.specific-plugin-all.js'
   }]
+}];
+
+var leafletLib = bundle1.getLib('leaflet');
+
+fullAppSpecs.forEach(function (fullAppSpec) {
+  fullAppSpec.disabled = true;
+  fullAppSpec.assets.push({
+    type: 'stylesheet',
+    path: 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css'
+  });
+  leafletLib.addVersion(fullAppSpec);
 });
 
 
