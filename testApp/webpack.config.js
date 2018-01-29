@@ -21,5 +21,12 @@ module.exports = {
     new UglifyJSPlugin({
       include: /\.min\.js$/
     })
-  ]
+  ],
+  module: {
+    rules: [{
+      // https://github.com/webpack-contrib/imports-loader
+      test: require.resolve(path.resolve(appFolder,'..', '..', 'testPlugin', 'global', 'testPlugin.global')),
+      use: 'imports-loader?L=leaflet2'
+    }]
+  }
 };

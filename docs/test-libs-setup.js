@@ -195,6 +195,12 @@ var fullAppSpecs = [{
     path: '../testApp/dist/testApp.webpack.all-plugin-specific-umd.js'
   }]
 }, {
+  name: 'webpack-all-plugin-global',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.webpack.all-plugin-global.js'
+  }]
+}, {
   name: 'webpack-specific',
   assets: [{
     type: 'script',
