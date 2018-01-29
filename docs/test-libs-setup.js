@@ -141,6 +141,12 @@ var fullAppSpecs = [{
     path: '../testApp/dist/testApp.rollup.all-plugin-specific-umd.js'
   }]
 }, {
+  name: 'Rollup-all-plugin-global',
+  assets: [{
+    type: 'script',
+    path: '../testApp/dist/testApp.rollup.all-plugin-global.js'
+  }]
+}, {
   name: 'Rollup-specific',
   assets: [{
     type: 'script',
