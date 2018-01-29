@@ -11,7 +11,7 @@
     "browserify": "npm run browserify:all && npm run browserify:all-plugin-with-export",
     "browserify:all": "browserify testApp/browserify/testApp.all.js -o testApp/dist/testApp.browserify.all.js",
     "browserify:all-plugin-with-export": "browserify testApp/browserify/testApp.all-plugin-with-export.js -o testApp/dist/testApp.browserify.all-plugin-with-export.js",
-    "rollup": "npm run rollup:all && npm run rollup:all-plugin-specific && npm run rollup:all-plugin-all-umd && npm run rollup:all-plugin-specific-umd && npm run rollup:specific && npm run rollup:specific-plugin-all && npm run rollup:specific-plugin-all-umd && npm run rollup:specific-plugin-specific-umd",
+    "rollup": "npm run rollup:all && npm run rollup:all-plugin-specific && npm run rollup:all-plugin-all-umd && npm run rollup:all-plugin-specific-umd && npm run rollup:all-plugin-global && npm run rollup:specific && npm run rollup:specific-plugin-all && npm run rollup:specific-plugin-all-umd && npm run rollup:specific-plugin-specific-umd",
     "rollup:all": "cd testApp/rollup-webpack-all && npm run rollup",
     "rollup:all-plugin-specific": "cd testApp/rollup-webpack-all-plugin-specific && npm run rollup",
     "rollup:all-plugin-all-umd": "cd testApp/rollup-webpack-all-plugin-all-umd && npm run rollup",
